@@ -6,12 +6,12 @@ import org.junit.Test;
 public class HexaTest {
 
     @Test
-    public void testHexa(){
-        HexAOperationsExecutor<String> executor = new HexAOperationsExecutor<String>();
+    public void testHexA(){
+        HexAOperationsExecutor executor = new HexAOperationsExecutor();
 
         AnHexAOperation operation = new AnHexAOperation();
-        HexAOperationResult<String> operationResult = executor.executeOperation(operation);
+        executor.executeOperation(operation);
 
-        Assert.assertEquals("Hexa did something", operationResult.result());
+        Assert.assertEquals("Hexa did something", operation.result());
     }
 }

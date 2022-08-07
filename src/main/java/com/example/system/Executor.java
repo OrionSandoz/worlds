@@ -1,8 +1,8 @@
 package com.example.system;
 
-public interface Executor<HEXAGON, OPERATION extends Operation<HEXAGON, OPERATION_RESULT>, OPERATION_RESULT> {
+public interface Executor<HEXAGON, OPERATION> {
  
-    OPERATION_RESULT executeOperation(OPERATION operation); 
+    OPERATION executeOperation(OPERATION operation); 
 
 
 }

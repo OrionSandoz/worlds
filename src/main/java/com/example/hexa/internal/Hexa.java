@@ -1,11 +1,11 @@
-package com.example.hexa;
+package com.example.hexa.internal;
 
 public class Hexa {
 
-    protected Hexa() {
+    public Hexa() {
     }
 
-    protected String doSomething(){
+    public String doSomething(){
         return this.getClass().getSimpleName() + " did something";
     }  
 }
