@@ -1,8 +1,8 @@
 package com.example.hexa.internal;
 
-public class Hexa {
+public class HexA {
 
-    public Hexa() {
+    public HexA() {
     }
 
     public String doSomething(){

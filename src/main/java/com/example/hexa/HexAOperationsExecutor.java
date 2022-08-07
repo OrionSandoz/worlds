@@ -1,16 +1,18 @@
 package com.example.hexa;
 
-import com.example.hexa.internal.Hexa;
+import com.example.hexa.internal.HexA;
+import com.example.hexa.internal.HexAOperation;
+import com.example.system.HexagonExecutor;
 
-public class HexAOperationsExecutor {
+public class HexAOperationsExecutor implements HexagonExecutor<HexAOperation> {
 
-    private final Hexa hexA;
+    private final HexA hexA;
 
     public HexAOperationsExecutor() {
-        this.hexA = new Hexa();
+        this.hexA = new HexA();
     }
 
-    public void executeOperation(HexAOperation<Hexa> operation) {
+    public void executeOperation(HexAOperation operation) {
         operation.execute(hexA);
     }
 

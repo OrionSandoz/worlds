@@ -3,7 +3,7 @@ package com.example.hexa;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class HexaTest {
+public class HexATest {
 
     @Test
     public void testHexA(){
@@ -12,6 +12,6 @@ public class HexaTest {
         AnHexAOperation operation = new AnHexAOperation();
         executor.executeOperation(operation);
 
-        Assert.assertEquals("Hexa did something", operation.result());
+        Assert.assertEquals("HexA did something", operation.result());
     }
 }
