@@ -2,9 +2,9 @@ package com.example.hexa;
 
 import com.example.hexa.internal.HexA;
 import com.example.hexa.internal.HexAOperation;
-import com.example.system.HexagonExecutor;
+import com.example.system.OperationExecutor;
 
-public class HexAOperationsExecutor implements HexagonExecutor<HexAOperation> {
+public class HexAOperationsExecutor implements OperationExecutor<HexAOperation> {
 
     private final HexA hexA;
 

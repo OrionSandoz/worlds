@@ -1,6 +1,6 @@
 package com.example.system;
 
-public interface HexagonExecutor<OPERATION> {
+public interface OperationExecutor<OPERATION> {
  
     void executeOperation(OPERATION operation); 
 

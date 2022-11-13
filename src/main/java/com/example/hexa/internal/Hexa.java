@@ -1,6 +1,8 @@
 package com.example.hexa.internal;
 
-public class HexA {
+import com.example.system.Hexagon;
+
+public class HexA implements Hexagon {
 
     public HexA() {
     }
