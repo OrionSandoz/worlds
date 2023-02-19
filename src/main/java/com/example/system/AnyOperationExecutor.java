@@ -33,17 +33,33 @@ public class AnyOperationExecutor implements OperationExecutor<Operation> {
         boolean foundRelatedHexagon = false;
         for(Hexagon hexagon : hexagons){
             try {
+                
+                // try to check if execute method fits the hexagon
+                try {
+                    operation.getClass().getMethod("execute", hexagon.getClass());
+                } catch (NoSuchMethodException e) {
+                    // if execute method doesn't accept the haxagon as param, it's not the right hexagon 
+                    System.out.println("NoSuchMethodException : " + e.getMessage());
+                    continue;
+                } catch (SecurityException e) {
+                    // if system setup doesn't allow to check the method existence, just continue and give a chance for an execution to succeed
+                    System.out.println("SecurityException : " + e.getMessage());
+                }
+                
+                // if the operation execute method doesn't accept the hexagon as parameter, a classcast execption will occur
                 execute(operation, hexagon);
+
                 foundRelatedHexagon = true;
                 hexagonByOperation.put(operationTypeIdentifier, hexagon);
+                
                 break;
             } catch (ClassCastException e){
-                //System.out.println("Unsuccesful try to execute " + operationTypeIdentifier + " with " + hexagon.getClass().getName());
+                System.out.println("Unsuccesful try to execute " + operationTypeIdentifier + " with " + hexagon.getClass().getName());
             }
         }
 
         if(!foundRelatedHexagon){
-            throw new RuntimeException("You propably forgot to add the appropriate hexagon for operation " + operationTypeIdentifier);
+            throw new RuntimeException("You probably forgot to add the appropriate hexagon for operation " + operationTypeIdentifier);
         }
     }
 

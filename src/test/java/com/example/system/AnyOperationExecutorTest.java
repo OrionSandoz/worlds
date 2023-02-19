@@ -35,4 +35,13 @@ public class AnyOperationExecutorTest {
         anyOperationExecutor.executeOperation(otherHexBOperation);
         Assert.assertEquals(new Long(parameter * 10), otherHexBOperation.result());
     }
+
+    @Test(expected = RuntimeException.class)
+    public void notDeclaredHexagon(){
+        AnyOperationExecutor anyOperationExecutor = new AnyOperationExecutor();
+
+        AnHexAOperation hexAOperation = new AnHexAOperation();
+        anyOperationExecutor.executeOperation(hexAOperation);   
+
+    }
 }
