@@ -1,7 +1,7 @@
-package io.orisan.world_C.internal;
+package io.orisan.worlds.world_C.internal;
 
-import io.orisan.world_C.pub.ExternalWorldAdapter;
 import io.orisan.worlds.system.World;
+import io.orisan.worlds.world_C.pub.ExternalWorldAdapter;
 
 public class WorldC implements World {
 

@@ -1,13 +1,13 @@
-package io.orisan.system;
+package io.orisan.worlds.system;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import io.orisan.world_A.internal.WorldA;
-import io.orisan.world_A.pub.AWorldAOperation;
-import io.orisan.world_B.internal.WorldB;
-import io.orisan.world_B.pub.AWorldBOperation;
 import io.orisan.worlds.system.AnyOperationExecutor;
+import io.orisan.worlds.world_A.internal.WorldA;
+import io.orisan.worlds.world_A.pub.AWorldAOperation;
+import io.orisan.worlds.world_B.internal.WorldB;
+import io.orisan.worlds.world_B.pub.AWorldBOperation;
 
 public class AnyOperationExecutorTest {
     

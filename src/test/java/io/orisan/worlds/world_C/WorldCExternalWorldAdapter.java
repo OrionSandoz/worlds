@@ -1,8 +1,8 @@
-package io.orisan.world_C;
+package io.orisan.worlds.world_C;
 
-import io.orisan.world_A.pub.AWorldAOperation;
-import io.orisan.world_C.pub.ExternalWorldAdapter;
 import io.orisan.worlds.system.AnyOperationExecutor;
+import io.orisan.worlds.world_A.pub.AWorldAOperation;
+import io.orisan.worlds.world_C.pub.ExternalWorldAdapter;
 
 public class WorldCExternalWorldAdapter implements ExternalWorldAdapter {
 

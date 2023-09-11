@@ -1,4 +1,4 @@
-package io.orisan.world_C.internal;
+package io.orisan.worlds.world_C.internal;
 
 import io.orisan.worlds.system.Operation;
 

@@ -1,8 +1,8 @@
-package io.orisan.world_B.pub;
+package io.orisan.worlds.world_B.pub;
 
-import io.orisan.world_B.internal.WorldB;
-import io.orisan.world_B.internal.WorldBOperation;
 import io.orisan.worlds.system.OperationExecutor;
+import io.orisan.worlds.world_B.internal.WorldB;
+import io.orisan.worlds.world_B.internal.WorldBOperation;
 
 public class WorldBOperationsExecutor implements OperationExecutor<WorldBOperation> {
 

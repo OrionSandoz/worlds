@@ -1,4 +1,4 @@
-package io.orisan.world_A.internal;
+package io.orisan.worlds.world_A.internal;
 
 import io.orisan.worlds.system.World;
 

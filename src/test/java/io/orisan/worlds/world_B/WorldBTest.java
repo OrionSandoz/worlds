@@ -1,10 +1,10 @@
-package io.orisan.world_B;
+package io.orisan.worlds.world_B;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import io.orisan.world_B.pub.AWorldBOperation;
-import io.orisan.world_B.pub.WorldBOperationsExecutor;
+import io.orisan.worlds.world_B.pub.AWorldBOperation;
+import io.orisan.worlds.world_B.pub.WorldBOperationsExecutor;
 
 
 public class WorldBTest {

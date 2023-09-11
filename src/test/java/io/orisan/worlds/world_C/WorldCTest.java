@@ -1,12 +1,12 @@
-package io.orisan.world_C;
+package io.orisan.worlds.world_C;
 
 import org.junit.Assert;
 import org.junit.Test;
 
-import io.orisan.world_A.internal.WorldA;
-import io.orisan.world_C.internal.WorldC;
-import io.orisan.world_C.pub.AWorldCOperation;
 import io.orisan.worlds.system.AnyOperationExecutor;
+import io.orisan.worlds.world_A.internal.WorldA;
+import io.orisan.worlds.world_C.internal.WorldC;
+import io.orisan.worlds.world_C.pub.AWorldCOperation;
 
 public class WorldCTest {
 

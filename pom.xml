@@ -9,7 +9,7 @@
   <version>1.0-SNAPSHOT</version>
   <packaging>jar</packaging>
 
-  <name>Worlds based architecture framework</name>
+  <name>Worlds based software architecture framework</name>
   <url>https://github.com/OrionSandoz/worlds</url>
 
   <properties>

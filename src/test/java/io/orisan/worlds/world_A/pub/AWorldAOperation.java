@@ -1,7 +1,7 @@
-package io.orisan.world_A.pub;
+package io.orisan.worlds.world_A.pub;
 
-import io.orisan.world_A.internal.WorldA;
-import io.orisan.world_A.internal.WorldAOperation;
+import io.orisan.worlds.world_A.internal.WorldA;
+import io.orisan.worlds.world_A.internal.WorldAOperation;
 
 public class AWorldAOperation implements WorldAOperation {
 
