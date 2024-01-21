@@ -56,6 +56,14 @@ public class DoFancyThing implements FancyWorldOperation {
 
 ## Use four fancy World within an application
 
+### Add Maven dependecy to your pom.xml
+```
+<dependency>
+    <groupId>io.orisan</groupId>
+    <artifactId>worlds</artifactId>
+</dependency>
+```
+
 ### Define the concrete implementation of ExternalWorldAdapter interface
 ```java
 public class MyExternalWorldAdapter implements ExternalWorldAdapter {
