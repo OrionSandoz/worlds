@@ -16,11 +16,11 @@ public class WorldCTest {
         AnyOperationExecutor anyOperationExecutor = new AnyOperationExecutor();
         
         WorldA worldA = new WorldA();
-        anyOperationExecutor.addWorld(worldA);
+        anyOperationExecutor.withWorld(worldA);
 
         WorldCExternalWorldAdapter worldAdapter = new WorldCExternalWorldAdapter(anyOperationExecutor);
         WorldC worldC = new WorldC(worldAdapter);
-        anyOperationExecutor.addWorld(worldC);
+        anyOperationExecutor.withWorld(worldC);
 
         AWorldCOperation aWorldCOperation = new AWorldCOperation();
         

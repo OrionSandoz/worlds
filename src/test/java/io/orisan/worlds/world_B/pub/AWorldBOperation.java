@@ -5,9 +5,10 @@ import io.orisan.worlds.world_B.internal.WorldBOperation;
 
 public class AWorldBOperation implements WorldBOperation {
 
+    public final Long parameter;
+    
     Long result = -1L;
     
-    Long parameter;
     public AWorldBOperation(Long parameter){
         this.parameter = parameter;
     }

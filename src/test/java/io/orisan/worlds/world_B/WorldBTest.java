@@ -3,15 +3,17 @@ package io.orisan.worlds.world_B;
 import org.junit.Assert;
 import org.junit.Test;
 
+import io.orisan.worlds.system.AnyOperationExecutor;
+import io.orisan.worlds.world_B.internal.WorldB;
 import io.orisan.worlds.world_B.pub.AWorldBOperation;
-import io.orisan.worlds.world_B.pub.WorldBOperationsExecutor;
 
 
 public class WorldBTest {
 
     @Test
     public void testHexB(){
-        WorldBOperationsExecutor executor = new WorldBOperationsExecutor();
+        AnyOperationExecutor executor = new AnyOperationExecutor();
+        executor.withWorld(new WorldB());
 
         Long parameter = 1234L;
         AWorldBOperation operation = new AWorldBOperation(parameter);

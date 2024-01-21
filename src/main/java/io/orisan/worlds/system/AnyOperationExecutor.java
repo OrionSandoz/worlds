@@ -11,8 +11,17 @@ public class AnyOperationExecutor implements OperationExecutor<Operation> {
     private final List<World> worlds = new ArrayList<>();
     private final Map<String, World> worldByOperation = new HashMap<>();
 
-    public void addWorld(World world){
+    private final List<PostExecution> postExecutionChain = new ArrayList();
+    private final Map<Operation, List<PostExecution>> resolvedPostExecutionChains = new HashMap<>(); 
+
+    public AnyOperationExecutor withWorld(World world){
         worlds.add(world);
+        return this;
+    }
+
+    public AnyOperationExecutor withPostExecution(PostExecution chainItem){
+        postExecutionChain.add(chainItem);
+        return this;
     }
 
     public void executeOperation(Operation operation){
@@ -65,6 +74,37 @@ public class AnyOperationExecutor implements OperationExecutor<Operation> {
 
     private void execute(Operation operation, World world){
         operation.execute(world);
+
+        if(!postExecutionChain.isEmpty()){
+            executePostExecutionChain(operation);
+        }
+
+    }
+
+    private void executePostExecutionChain(Operation operation) {
+        if(postExecutionChainIsNotResolvedForOperation(operation)){
+            resolvePostExecutionChainForOperation(operation);
+        }
+        executeResolvedChainForOperation(operation);
+    }
+
+    private boolean postExecutionChainIsNotResolvedForOperation(Operation operation){
+        return !resolvedPostExecutionChains.containsKey(operation);
+    }
+
+    private void resolvePostExecutionChainForOperation(Operation operation) {
+        resolvedPostExecutionChains.put(operation, new ArrayList<>());
+        for(PostExecution chainItem : postExecutionChain){
+            if(chainItem.accept(operation)){
+                resolvedPostExecutionChains.get(operation).add(chainItem);
+            }
+        }
+    }
+
+    private void executeResolvedChainForOperation(Operation operation) {
+        for(PostExecution chainItem : resolvedPostExecutionChains.get(operation)){
+            chainItem.execute(operation);
+        }
     }
 
     private World relatedWorld(Operation operation){
