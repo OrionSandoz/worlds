@@ -1,3 +1,4 @@
+[![Maven Central](https://img.shields.io/maven-central/v/io.orisan/worlds.svg)](https://search.maven.org/artifact/io.orisan/worlds)
 
 # Worlds
 **io.orisan.worlds** is a tiny framework putting your functional domains into action
