@@ -3,6 +3,17 @@
 # Worlds
 **io.orisan.worlds** is a tiny framework putting your functional domains into action
 
+## Keys
+    World : a functional unit that manages fully its business processes without knowing anyting about the external world. Typicaly an Hexagon as defined by Alistair Cockburn. A functional unit be built with several classes
+    
+    Operation : a command proposed by a World used to interact with it.
+    
+    Adapter : implements interfaces imposed by a World
+    
+    Client : uses the Operations proposed by a World
+
+    A World defines adapter interfaces to interact with the external world. A concrete adapter implements that interface and defines how it concretely does the job in the context of a given application. 
+
 ## Create your fancy World
 
 ### Implement your fancy World
