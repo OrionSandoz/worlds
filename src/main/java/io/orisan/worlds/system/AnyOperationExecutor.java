@@ -14,6 +14,9 @@ public class AnyOperationExecutor implements OperationExecutor<Operation> {
     private final List<PostExecution> postExecutionChain = new ArrayList();
     private final Map<Operation, List<PostExecution>> resolvedPostExecutionChains = new HashMap<>(); 
 
+    private final List<AroundExecution> aroundExecutionChain = new ArrayList();
+    private final Map<Operation, List<AroundExecution>> resolvedAroundExecutionChains = new HashMap<>(); 
+
     public AnyOperationExecutor withWorld(World world){
         worlds.add(world);
         return this;
@@ -73,12 +76,49 @@ public class AnyOperationExecutor implements OperationExecutor<Operation> {
     }
 
     private void execute(Operation operation, World world){
-        operation.execute(world);
+        if(!aroundExecutionChain.isEmpty()){
+            executeBeforeExecutionChain(operation);
+            operation.execute(world);
+            executeAfterExecutionChain(operation);
+        } else {
+            operation.execute(world);
 
-        if(!postExecutionChain.isEmpty()){
-            executePostExecutionChain(operation);
+            if(!postExecutionChain.isEmpty()){
+                executePostExecutionChain(operation);
+            }
         }
+    }
 
+    private void executeBeforeExecutionChain(Operation operation) {
+        if(aroundExecutionChainIsNotResolvedForOperation(operation)){
+            resolveAroundExecutionChainForOperation(operation);
+        }
+        executeBeforeExecutionChainForOperation(operation);
+    }
+
+    private boolean aroundExecutionChainIsNotResolvedForOperation(Operation operation){
+        return !resolvedAroundExecutionChains.containsKey(operation);
+    }
+
+    private void resolveAroundExecutionChainForOperation(Operation operation) {
+        resolvedAroundExecutionChains.put(operation, new ArrayList<>());
+        for(AroundExecution chainItem : aroundExecutionChain){
+            if(chainItem.accept(operation)){
+                resolvedAroundExecutionChains.get(operation).add(chainItem);
+            }
+        }
+    }
+
+    private void executeBeforeExecutionChainForOperation(Operation operation) {
+        for(AroundExecution chainItem : resolvedAroundExecutionChains.get(operation)){
+            chainItem.before(operation);
+        }
+    }
+
+    private void executeAfterExecutionChain(Operation operation) {
+        for(AroundExecution chainItem : resolvedAroundExecutionChains.get(operation)){
+            chainItem.after(operation);
+        }
     }
 
     private void executePostExecutionChain(Operation operation) {
